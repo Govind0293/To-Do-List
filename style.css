@@ -1,0 +1,230 @@
+:root {
+    --background: #121212;
+    --primary-color: #1e1e1e;
+    --secondary-color: #4a4a4a;
+    --accent-color: #bb86fc;
+    --text-color: #ffffff;
+    --error-color: #cf6679;
+    --highlight-color: #03dac6;
+    --input-background: #333333;
+    --input-text: #ffffff;
+    --high-priority-color: #ff4444;
+    --medium-priority-color: #ffbb33;
+    --low-priority-color: #00C851;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 540px;
+    width: 100%;
+    background: var(--primary-color);
+    padding: 40px 30px 70px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--input-background);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--input-text);
+}
+
+#priority-select {
+    margin-left: 10px;
+    margin-right: 8px;
+    border: none;
+    background: var(--highlight-color);
+    color: var(--text-color);
+    border-radius: 20px;
+    padding: 10px;
+    transition: background-color 0.3s ease;  
+}
+
+.priority-high {
+    background-color: var(--high-priority-color) !important;  
+}
+
+.priority-medium {
+    background-color: var(--medium-priority-color) !important;
+}
+
+.priority-easy {
+    background-color: var(--low-priority-color) !important;
+}
+
+button {
+    border: none;
+    padding: 16px 50px;
+    background: var(--highlight-color);
+    color: var(--text-color);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #02a399;
+}
+
+ul li {
+    list-style: none;
+    font-size: 1rem;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    color: var(--text-color);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+ul li.high::before,
+ul li.medium::before,
+ul li.low::before {
+    content: '';
+    position: absolute;
+    height: 12px;
+    width: 12px; 
+    border-radius: 50%;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul li.high::before {
+    background-color: var(--high-priority-color);
+}
+
+ul li.medium::before {
+    background-color: var(--medium-priority-color);
+}
+
+ul li.low::before {
+    background-color: var(--low-priority-color);
+}
+
+ul li {
+    padding-left: 35px; 
+}
+
+ul li.checked {
+    color: var(--secondary-color);
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(/Images/check_circle_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png);
+}
+
+ul li span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: var(--error-color);
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+ul li span:hover {
+    background: var(--input-background);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 30px 20px 50px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    input, #priority-select, button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        padding: 20px 15px 40px;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}
+
+
+
